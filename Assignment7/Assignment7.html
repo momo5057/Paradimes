@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Morgan Maness's Assignment 7</title>
+</head>
+<body>
+
+<h1>Morgan Maness's Assignment 7</h1>
+
+<form id="car" onsubmit="CarSubmit()">
+  Engine description:<br>
+  <input type="text" name="engine" value="v8">
+  <br>
+  Miles per gallon:<br>
+  <input type="number" name="mpg" value="30">
+  <br>
+   Max Speed:<br>
+  <input type="number" name="maxS" value="120">
+  <br>
+  Car description:<br>
+  <input type="text" name="carD" value="truck">
+  <br>
+  Max fuel capacity:<br>
+  <input type="number" name="fuel" value="40">
+  <br>
+</form>
+ <button onClick="createCar()">Create Car</button>
+ 
+ <p id = "carDescription"></p>
+
+
+<form id="driveCar" hidden>
+  Miles to drive:<br>
+  <input type="number" name="miles" value="100">
+  <br>
+  X ratio:<br>
+  <input type="number" name="xRatio" value="3">
+  <br>
+   Y ratio:<br>
+  <input type="number" name="yRatio" value="1">
+  <br> 
+  
+</form>
+<button onClick = "Drive()">Drive</button>
+
+<script>
+var carObj;
+function createCar(){
+ var x = document.getElementById("driveCar");
+ x.style.display = "block"
+var x = document.getElementById("car");
+var engine = x.elements[0].value;
+var mpg = x.elements[1].value;
+var maxS = x.elements[2].value;
+var carD = x.elements[3].value;
+var fuel=x.elements[4].value;
+
+var gT = new GasTank(fuel);
+  var eng = new Engine(engine, mpg, maxS);
+  carObj = new Car(carD, fuel, eng);
+
+  document.getElementById("carDescription").innerHTML = carObj.getDescription();
+  
+
+
+return false;}
+function Drive(){
+
+var y =	document.getElementById("driveCar");
+var miles = y.elements[0].value;
+var xCor = y.elements[1].value;
+var yCor = y.elements[2].value;
+
+alert(carObj.drive(miles, xCor, yCor));
+
+return false;
+}
+
+class GasTank{
+
+	constructor(fuel){
+    	if(fuel > 0)
+    		this.capacity=fuel;
+        else
+        	this.fuel = 0;
+        this.level = fuel;
+   }
+    getCapacity(){
+    	return this.capacity;}
+    getLevel(){
+    	return this.level;}
+     setLevel(levelIn){
+     if(levelIn<0)
+     	this.level = 0;
+     else if(levelIn > this.capacity)
+     	this.level = this.capacity;
+     else
+     	this.level = levelIn;}
+}
+class Engine{
+	constructor(engine, mpg, maxS){
+    	this.eng = engine;
+        if(mpg > 0)
+        	this.mpg = mpg;
+        else
+        	this.mpg = 0;
+        if(maxS > 0)
+        	this.maxS = maxS;
+         else 
+         	this.maxS = 0;}
+	getDescription(){
+    	return this.eng+" (MPG: " + this.mpg + ", Max speed: " + this.maxS + ")";}
+     getMPG(){return this.mpg;}
+     getSpeed(){return this.maxS;}
+}
+
+class Car{
+	constructor(des, maxF, e){
+    this.des = des;
+    this.e = e;
+    this.gas = new GasTank(maxF);
+    this.xCor=0;
+    this.yCor=0;}
+    getDescription(){return this.des +"(engine: " + this.e.getDescription() + ", fuel: " + this.gas.getLevel() + "/" + this.gas.getCapacity() + ", location: (" + this.xCor + "," + this.yCor + ")";}
+    getX(){return this.xCor;}
+    getY(){return this.yCor;}
+    getFuelLevel(){return this.gas.getLevel()}
+    getMPG(){return e.getMPG();}
+    fillUp(){ this.gas.setLevel(gas.getCapacity());}
+    getMaxSpeed(){return e.getSpeed()}
+    
+    drive(distance, xRation, yRation){
+    this.distance = distance;
+if(this.distance < 0){    	this.distance = 0;
+        alert("Ran out of gas while driving");}
+  this.z = Math.sqrt((this.xRation * this.xRation)+(this.yRation * this.yRation));
+    this.xCor += this.z * this.xRation;
+    this.yRation += this.z * this.yRation;
+    this.gas.setLevel(getFuelLevel()-(this.distance/getMPG()));
+    return this.distance;
+    }
+    
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Morgan Maness's Page</title>
+
+</head>
+
+<body bgcolor="#F699CC">
+
+<h1>Morgan Maness's Page</h1>
+<p>This page contains a quiz about dogs. Read the questions and pick which you think is right. Here is a link to help you answer some of these questions.</p>
+
+<a href="http://www.vetstreet.com/dogs/" target="_blank">www.vetstreet.com/dogs</a>
+
+<p>Question 1. <br /> Why does your dog tilt its head? </p>
+<button onClick="button01()">To make better sence of what they hear</button>
+<button onClick="button02()">Because they know they look cute</button>
+<button onClick="button02()">To show you they are listening</button>
+<p id="demo"></p>
+
+<p>Question 2. <br /> What food can dogs eat? </p>
+<button onClick="button12()">Almonds</button>
+<button onClick="button11()">Cheese</button>
+<button onClick="button12()">Chocolate</button>
+<p id="demo1"></p>
+
+<p>Question 3. <br /> Which dog is a Bassett Hound?</p>
+<button onClick="button22()"><img src="https://vetstreet.brightspotcdn.com/dims4/default/c391e66/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F21%2Ff0%2F4add712b4abdad35886eb7e28ee9%2Fcocker-spaniel-ap-ti9tup.jpg" alt="Trulli" width="150" height="75" >
+</button>
+<button onClick="button21()"><img src="https://vetstreet.brightspotcdn.com/dims4/default/2571b0a/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F14%2Fd8%2F30f5eb524efdb28ce21e1a5724d6%2Fbasset-hound-AP-PKQRFR-645sm52714.jpg" alt="Trulli" width="150" height="75" >
+</button>
+<button onClick="button22()"><img src="https://vetstreet.brightspotcdn.com/dims4/default/daea1bb/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F98%2F5c%2Fa89605db40e5bfd72ff6d0e41ae2%2Fgerman-shepherd-ap-aozjlq-645.jpg" alt="Trulli" width="150" height="75" ></button>
+
+<p id="demo2"></p>
+
+<button onClick="button3()">Reset</button>
+
+
+
+<script>
+function button01(){
+	document.getElementById("demo").innerHTML = "Correct";}
+function button02(){
+ 	document.getElementById("demo").innerHTML = "Incorrect";}
+
+function button11(){
+	document.getElementById("demo1").innerHTML = "Correct";}
+function button12(){
+ 	document.getElementById("demo1").innerHTML = "Incorrect";}
+
+   function button21(){
+	document.getElementById("demo2").innerHTML = "Correct";}
+function button22(){
+ 	document.getElementById("demo2").innerHTML = "Incorrect";}
+    function button3()
+    {
+    document.getElementById("demo").innerHTML = "";
+    document.getElementById("demo1").innerHTML = "";
+    document.getElementById("demo2").innerHTML = "";}
+</script>
+</body>
+</html>
